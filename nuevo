@@ -1,1 +1,11 @@
-
+incluye jquery
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+estructura basica jquery
+<script>
+    $(document).ready(function(){
+        // Tu código jQuery aquí
+        $("button").click(function(){
+            $("p").text("¡Haz clic en el botón!");
+        });
+    });
+</script>
