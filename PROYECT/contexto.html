@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            place-items: center;
+            counter-reset: game;
+
+        }
+        .phone{
+            position: relative;
+            /*este es el contenedor grande que contiene los otros layouts*/
+            border: 8px solid black;
+            border-radius:40px;
+            height: 600px;
+            width: 300px;
+            background-color: rgb(186, 230, 249);
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            /*Sombritas*/
+        }
+        /*primeras capas de atras*/
+        /*Conejito1*/
+        .layer-1 {
+            position: absolute;
+            z-index: 1;
+            height: 450px;
+            width: 80px;
+            background: rgba(245, 241, 1, 0);
+            bottom:0;
+            right: 60px;
+            animation-name: layer1;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+
+        }
+        @keyframes layer1{
+            0%{
+                bottom:0;
+            }
+            25%{
+                bottom:-80px;
+            }
+            100%{
+                bottom:0;
+            }
+        }
+        
+
+
+        /*conejito2*/
+        .layer-2 {
+            position: absolute;
+            z-index: 2;
+            height: 450px;
+            width: 80px;
+            background: rgba(245, 241, 1, 0);
+            bottom:0;
+            left: 60px;
+
+            animation-name: layer1;
+            animation-duration: 4s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            
+        }
+        /*muro 1*/
+        .layer-3 {
+            position: absolute;
+            border-radius: 10%;
+            z-index: 3;
+            left: 0;
+            right: 0;
+            margin:0 auto;
+            width: 220px;
+            height: 400px;
+            background: rgb(168, 102, 71);
+            bottom: 0;
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.70), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+
+        }
+        /*conejito 3*/
+        .layer-4 {
+            position: absolute;
+            z-index: 4;
+            height: 340px;
+            width: 80px;
+            background: rgba(245, 241, 1, 0);
+            bottom:0;
+            left: 60px;
+
+            animation-name: layer1;
+            animation-duration: 3.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        /*muro2*/
+
+        .layer-5 {
+            position: absolute;
+            border-radius: 10%;
+            z-index: 5;
+            margin: 0 auto;
+            width: 220px;
+            height: 290px;
+            background-color: rgb(168, 102, 71);
+            bottom: 0;
+            /*Para que se baya al border de phone*/
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+
+        }
+        /*Conejito 4*/
+        .layer-6 {
+            position: absolute;
+            z-index: 6;
+            margin:0 auto;
+            width: 80px;
+            height: 210px;
+            right: 30px;
+            background: rgba(245, 241, 1, 0);
+            bottom: 0;
+
+            animation-name: layer1;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        /*muro3*/
+        .layer-7 {
+            position: absolute;
+            border-radius: 25%;
+            z-index: 7;
+            margin: 0 auto;
+            width: 200px;
+            height: 160px;
+            right: 0 ;
+            background:rgb(168, 102, 71);
+            bottom: 0;
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.70), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+        }
+        /*pasto*/
+        .layer-8 {
+            position: absolute;
+            z-index: 8;
+            margin: 0 auto;
+            width: 220px;
+            height: 115px;
+            background: rgba(255, 255, 255, 0);
+            right: 40px;
+            bottom: 0;
+        }
+        .layer-9 {
+            position: absolute;
+            z-index: 9;
+            margin: 0 auto;
+            width:120px ;
+            height: 80px;
+            background: rgba(245, 245, 245, 0);
+            overflow: hidden;
+            bottom: 0;
+
+        }
+        .layer-10 {
+            position: absolute;
+            z-index: 10;
+            
+            width:120px ;
+            height: 80px;
+            right: 0;
+            background: rgba(245, 245, 245, 0);
+            overflow: hidden;
+            bottom: 0;
+       
+	
+	
+         
+        }
+
+        .left-ear--outer {
+            background-color: white;
+            position: absolute;
+            border-radius: 90%;
+            width: 20px;
+            height: 60px;
+            top:0;
+            left: 10px;
+        }
+        .left-ear--inner {
+            background-color: pink;
+            position: absolute;
+            border-radius: 90%;
+            width: 10px;
+            height: 40px;
+           
+            left: 15px;
+            top: 8px;
+            
+        }
+        .right-ear--outer {
+            background-color: white;
+            position: absolute;
+            border-radius: 90%;
+            width: 20px;
+            height: 60px;
+            top:0;
+            right: 10px;
+        }
+        .right-ear--inner {
+            background-color: pink;
+            position: absolute;
+            border-radius: 90%;
+            width: 10px;
+            height: 40px;
+          
+            right: 15px;
+            top: 8px;
+        }
+        .head {
+            background: white ;
+            width: 70px;
+            height: 80px;
+            left: 0;
+            right: 0;
+            position: absolute;
+            top: 30px;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+        .head-eye--left {
+            background: black;
+            border-radius: 50%;
+            width: 4px;
+            height: 5px;
+            position: absolute;
+            top: 15px;
+            left: 22px;
+            /*animacion*/
+            animation-name: blink;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+
+        }
+        .head-eye--right {
+            background: black;
+            border-radius: 50%;
+            width: 4px;
+            height: 5px;
+            position: absolute;
+            top: 15px;
+            right: 22px;
+            /*animacion*/
+            animation-name: blink;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+        }
+        /*cpn esta parte funciona la animacion estos porcentajes
+        son de acuerdo al tiempo puesto en animation duration*/
+        @keyframes blink{
+            0%{
+                height:4px ;
+
+            }
+            5%{ 
+                transform: translate(0px,2px);
+                height: 1px;
+            }
+            10%{
+                height: 4px;
+                transform: translate(0px,0px);
+            }
+        }
+
+        /*MUROS*/
+        .zigzag{
+            overflow: hidden;
+         
+            border-radius: 5% 5% 0 0;
+            position: absolute;
+            top:0;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(135deg, rgb(173, 70, 22) 25%, transparent 20%) -50px 0,
+            linear-gradient(-135deg, rgb(173, 70, 22) 25%, transparent 25%) -50px 0,
+            linear-gradient(135deg, rgb(173, 70, 22) 25%, transparent 25%),
+            linear-gradient(-135deg, rgb(173, 70, 22) 25%, transparent 25%);
+            background-size: 100px 110px;
+                
+        }
+        .zigzag-2 {
+            overflow: hidden;
+         
+            border-radius: 5% 5% 0 0;
+            position: absolute;
+            top:0;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(135deg, rgb(80, 218, 1) 25%, transparent 20%) -50px 0,
+            linear-gradient(-135deg, rgb(80, 218, 1) 25%, transparent 25%) 50px 0,
+            linear-gradient(135deg, rgb(80, 218, 1) 25%, transparent 25%),
+            linear-gradient(-135deg, rgb(80, 218, 1) 25%, transparent 25%);
+            background-size: 100px 70px;
+        }
+        /*PASTO*/
+       
+        .grid-center{
+            margin: 0;
+            position: absolute;
+            width: 90px;
+            height: 120px;
+            background: greenyellow;
+            border-radius: 40% 50% 10% 10%;
+            right: 0;
+            bottom: 0;
+            left: 65px;
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.70), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+        }
+        .grid-left {
+            margin: 0;
+            position: absolute;
+            width: 80px;
+            height: 98px;
+            background: greenyellow;
+            border-radius: 40% 50% 10% 10%;
+            bottom: 0;
+            left: 0;
+
+        }
+        .grid-right{
+            margin: 0;
+            position: absolute;
+            width: 80px;
+            height: 90px;
+            background: greenyellow;
+            border-radius: 40% 50% 10% 10%;
+            bottom: 0;
+            right: 0;
+
+        }
+
+        /*NUBES*/
+        .shadow-center{
+            margin: 0;
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: whitesmoke;
+            border-radius: 40% 50% 0 40%;
+            bottom: 0;
+            overflow: hidden;
+        }
+        .shadow-right{
+            margin: 0;
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            background-color: whitesmoke;
+            border-radius: 40% 50% 50% 40%;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+
+        }
+        .shadow-right-2{
+            margin: 0;
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: whitesmoke;
+            border-radius: 40% 50% 50% 30%;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+
+        }
+        .shadow-left{
+            margin: 0;
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            background-color: whitesmoke;
+            border-radius: 40% 50% 50% 40%;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .layer-1 input[type=checkbox] {
+            appearance: none;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            height: 8rem;
+            width: 8rem;
+        }
+
+        .layer-2 input[type=checkbox] {
+            appearance: none;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            height: 8rem;
+            width: 8rem;
+        }
+
+        .layer-4 input[type=checkbox] {
+            appearance: none;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            height: 130px;
+            width: 80px;
+        }
+
+        .layer-6 input[type=checkbox] {
+            appearance: none;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            height: 8rem;
+            width: 8rem;
+        }
+        .total-count::after{
+            content: counter(game);
+        }
+        input[type=checkbox]:focus {
+            appearance: none;
+            outline: none;    
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="phone">
+        
+        <div class="layer-1">
+            <input type="checkbox">
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+               
+                <div class="head-eye--left"></div>
+                <div class="head-eye--right"></div>
+            </div>
+        </div>
+
+        <div class="layer-2">
+            <input type="checkbox">
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head-eye--left"></div>
+                <div class="head-eye--right"></div>
+            </div>
+        </div>
+        <div class="layer-3">
+            <div class="zigzag"></div>
+            <div class="zigzag-2"></div>
+        </div>
+        <div class="layer-4">
+            <input type="checkbox">
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head-eye--left"></div>
+                <div class="head-eye--right"></div>
+            </div>
+        </div>
+        <div class="layer-5">
+            <div class="zigzag"></div>
+            <div class="zigzag-2"></div>
+        </div>
+        <div class="layer-6">
+            <input type="checkbox">
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head-eye--left"></div>
+                <div class="head-eye--right"></div>
+            </div>
+        </div>
+        <div class="layer-7">
+            <div class="zigzag"></div>
+            <div class="zigzag-2"></div>
+        </div>
+        <div class="layer-8">
+            <div class="grid-center"></div>
+            <div class="grid-left"></div>
+            <div class="grid-right"></div>
+        </div>
+        <div class="layer-9">
+            <div class="shadow-center"></div>
+            <div class="shadow-right"></div>
+            
+        </div>
+        <div class="layer-10">
+            <div class="shadow-right-2"></div>
+            <div class="shadow-left"></div>
+            
+        </div>
+        <div class="score">
+            <h3 class="total-count">Score </h4>
+        </div>
+  
+    </div>
+    
+</body>
+</html>
